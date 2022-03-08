@@ -1,10 +1,11 @@
-fetch('https://cdn.jsdelivr.net/gh/xcodebuild/perfdemo/hello-world/api.json').then(res => {
-    return res.json();
-}).then(data => {
+window.LOAD_DATA = (data) => {
     const {
         title,
         url,
     } = data;
 
     document.body.innerHTML = `<h1>${title}</h1><img src="${url}"></img>`;
-});
+}
+const tag = document.createElement('script');
+tag.src = 'https://cdn.jsdelivr.net/gh/xcodebuild/perfdemo/hello-world/api.jsonp.js';
+document.head.appendChild(tag);
